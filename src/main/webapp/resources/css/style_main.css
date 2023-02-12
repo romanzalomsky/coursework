@@ -1,16 +1,53 @@
-body {
+html{
     font-family: Verdana, Helvetica, Arial, sans-serif;
-    background-image: url(img/back.jpg);
+    height: 100%;
+    overflow: hidden;
+
 }
 
 a { text-decoration: none; color: navy; }
 a:hover { text-decoration: underline; }
 
-#header_style{
-    width: 100%;    
-    height: 40px;    
-    background-color: #dde0e1; 
-    margin-bottom: 0px;
-    margin-top: -26px;
-    margin-left: -7px;    
+body{
+    margin: 0px;
+    padding: 0px;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#background-text{
+    font-family: monospace;
+    box-sizing: border-box;
+    min-height: 100vh;
+    font-size: 100px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 18%;
+}
+
+#paralax{
+    transform-style: inherit;
+    width: 100vw;
+}
+
+#paralax::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    transform-origin: center;
+    min-height: 100vh;
+    transform: translateZ(-1px) scale(2);
+}
+
+#header{
+    width: 100%;
+	background: #ffffff;
+	height: 70px;
 }

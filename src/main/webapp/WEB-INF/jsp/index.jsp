@@ -8,25 +8,13 @@
         <title>Главная</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style_main.css">
-            <div id = "header_style">
-          	    <header>
-          	        <h3>${pageContext.request.userPrincipal.name}</h3>
-
-          	    </header>
-            </div>
+        <div id = "header">
+            <header>header
+            </header>
+        </div>
     </head>
     <body>
-        <div>
-            <sec:authorize access="!isAuthenticated()">
-                <h4><a href="/login">Войти</a></h4>
-                <h4><a href="/registration">Зарегистрироваться</a></h4>
-            </sec:authorize>
-            <sec:authorize access="isAuthenticated()">
-                <h4><a href="/logout">Выйти</a></h4>
-            </sec:authorize>
-                <h4><a href="/news">Новости</a></h4>
-                <h4><a href="/admin">Пользователи</a></h4>
-                <h4><a href="/products">Товар</a></h4>
-        </div>
+        <div id = "background-text">Rent&Sale</div>
+        <div id = "paralax"></div>
     </body>
 </html>
