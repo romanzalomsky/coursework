@@ -21,7 +21,7 @@
                     </sec:authorize>
                         <a href="/news">Новости</a>
                         <a href="/admin">Пользователи</a>
-                        <a href="/products">Товар</a>
+                        <a href="/converter">Конвертер</a>
                 </div>
             </div>
         </header>
