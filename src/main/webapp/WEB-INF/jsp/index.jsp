@@ -19,9 +19,11 @@
                     <sec:authorize access="isAuthenticated()">
                         <a href="/logout">Выйти</a>
                     </sec:authorize>
-                        <a href="/news">Новости</a>
+                        <a href="/addEstate">Добавить объявление</a>
                         <a href="/admin">Пользователи</a>
                         <a href="/converter">Конвертер</a>
+                        <a href="/view">Посмотреть объявления</a>
+                        <a href="/favorite">Избранное</a>
                 </div>
             </div>
         </header>
@@ -30,6 +32,5 @@
         <div id = "header">
             Rent&Sale
         </div>
-
     </body>
 </html>
