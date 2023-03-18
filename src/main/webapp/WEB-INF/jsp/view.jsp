@@ -15,21 +15,13 @@
     </form>
 </div>
 <div>
-    <table>
-        <thead>
-        <th>Name</th>
-        </thead>
-        <c:forEach items="${estates}" var="estate">
-            <tr>
-                <td>${estate.name}</td>
-                <td>${estate.cost}</td>
-                <td><a href="/estate/${estate.id}">Подробнее...</a></td>
-            </tr>
-        </c:forEach>
-    </table>
+    <c:forEach items="${estates}" var="estate">
+        ${estate.name}<br>
+        ${estate.cost}<br>
+        <a href="/estate/${estate.id}">Подробнее...</a></br></br>
+    </c:forEach>
 
     Фильтры
-
 </div>
 
 </body>
