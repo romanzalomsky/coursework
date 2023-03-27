@@ -4,6 +4,7 @@ import com.boots.entity.Estate;
 import com.boots.entity.Image;
 import com.boots.repository.EstateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,13 +26,10 @@ public class EstateService {
         return estateRepository.findAll();
     }
 
-/*    public List<Estate> allEstates() {return estateRepository.findAll();}*/
+    public List<Estate> listHouseEstate(String house_type){
+        return estateRepository.findAll(Sort.by(Sort.Direction.ASC, house_type));
+    }
 
-/*    public List<Estate> estateCountryFilter(String country){
-        if(country != null) return estateRepository.findByCountry(country);
-        return estateRepository.findAll();
-
-    }*/
     public void saveEstate(Estate estate, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws IOException {
 
         Image image1;

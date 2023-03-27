@@ -7,30 +7,38 @@
 <head>
   <meta charset="utf-8">
   <title>Регистрация</title>
+  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/regStyle.css">
 </head>
 
 <body>
-<div>
-  <form:form method="POST" modelAttribute="userForm">
-    <h2>Регистрация</h2>
-    <div>
-      <form:input type="text" path="username" placeholder="Username"
-                  autofocus="true"></form:input>
-      <form:errors path="username"></form:errors>
-        ${usernameError}
+
+    <div class="content-box">
+        <form:form method="POST" modelAttribute="userForm">
+            <div id="reg">Регистрация</div>
+            <div>
+                <div id="ert">
+                    логин<br>
+                </div>
+                <form:input type="text" path="username" autofocus="true" id="inputName"></form:input>
+                <form:errors path="username"></form:errors>
+                    ${usernameError}
+            </div>
+            <div>
+                <div id="ertt">
+                    пароль<br>
+                </div>
+                <form:input type="password" path="password" id="inputPass"></form:input>
+            </div>
+            <div>
+                <div id="erttt">
+                    повтор пароля<br>
+                </div>
+                <form:input type="password" path="passwordConfirm" id="repPass"></form:input>
+                <form:errors path="password"></form:errors>
+                    ${passwordError}
+            </div>
+            <button type="submit" id="buttonS">зарегистрироваться</button>
+        </form:form>
     </div>
-    <div>
-      <form:input type="password" path="password" placeholder="Password"></form:input>
-    </div>
-    <div>
-      <form:input type="password" path="passwordConfirm"
-                  placeholder="Confirm your password"></form:input>
-      <form:errors path="password"></form:errors>
-        ${passwordError}
-    </div>
-    <button type="submit">Зарегистрироваться</button>
-  </form:form>
-  <a href="/">Главная</a>
-</div>
 </body>
 </html>

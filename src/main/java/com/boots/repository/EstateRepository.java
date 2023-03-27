@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface EstateRepository extends JpaRepository<Estate, Long> {
     List<Estate> findByName(String name);
-/*    List<Estate> findByCountry(String country);*/
+/*    List<Estate> findByType(Long id);*/
 }

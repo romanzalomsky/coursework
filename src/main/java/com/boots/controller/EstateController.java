@@ -1,6 +1,7 @@
 package com.boots.controller;
 
 import com.boots.entity.Estate;
+import com.boots.repository.EstateRepository;
 import com.boots.service.EstateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class EstateController {
@@ -16,11 +18,20 @@ public class EstateController {
     @Autowired
     EstateService estateService;
 
+    @Autowired
+    EstateRepository estateRepository;
+
     @GetMapping("/view")
     public String estate(@RequestParam(name = "name", required = false) String name, Model model) {
         model.addAttribute("estates", estateService.listEstate(name));
         return "view";
     }
+
+/*    @GetMapping("/view/sortEstate")
+    public String estateTypeHouse(Long id, Model model) {
+        model.addAttribute("estates", estateRepository.findByType(id));
+        return "view";
+    }*/
 
     @GetMapping("/estate/{id}")
     public String estateInfo(@PathVariable Long id, Model model){
@@ -30,12 +41,6 @@ public class EstateController {
         model.addAttribute("images", estate.getImages());
         return "search";
     }
-
-/*    @GetMapping("/view")
-    public String estateCountryFilter(@RequestParam(name = "country", required = false) String country, Model model){
-        model.addAttribute("estates", estateService.estateCountryFilter(country));
-        return "view";
-    }*/
 
     @PostMapping("/estate/create")
     public String createEstate(@RequestParam("file1") MultipartFile file1,

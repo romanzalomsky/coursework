@@ -35,17 +35,7 @@
 
     Посмотреть на карте
     <div id="map" class="map"></div>
-    <script src="https://api-maps.yandex.ru/3.0/?apikey=e08bfc85-00b5-4946-8035-455b901ff947&lang=ru_RU"></script>
-    <script>
-        ymaps3.ready().then(init);
-        function init(){
-            const map = new ymaps3.YMap(document.getElementById('map'), {
-                location: {
-                    center: [53.91794680418061,27.59491213198798],
-                    zoom: 16
-                }
-            });
-        }
-    </script>
+    <script src="https://api-maps.yandex.ru/3.0/?apikey=75cde50b-38f7-4a26-b1d8-fc6b8053502c&lang=ru_RU" type="text/javascript"></script>
+    <script src="/resources/js/map.js" type="text/javascript"></script>
 </body>
 </html>

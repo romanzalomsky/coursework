@@ -1,0 +1,101 @@
+body{
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 245 247/var(--tw-bg-opacity));
+}
+
+.content-box{
+    display: block;
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    padding: 15px;
+    border-radius: 35px;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+
+    box-shadow: 0 0 15px 0px black;
+    font-family: "Century Gothic";
+}
+
+#reg{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+#inputName{
+    margin-top: 4px;
+    margin-left: 42px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-size: 25px;
+    font-family: "Century Gothic";
+    border: 0;
+    height: 45px;
+    width: 317px;
+
+}
+
+#ert{
+    margin-top: 45px;
+    margin-left: 42px;
+    font-size: 25px;
+}
+
+#inputPass{
+    margin-top: 4px;
+    margin-left: 42px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-size: 25px;
+    font-family: "Century Gothic";
+    border: 0;
+    height: 45px;
+    width: 317px;
+}
+
+#ertt{
+    margin-top: 20px;
+    margin-left: 42px;
+    font-size: 25px;
+}
+
+#repPass{
+    margin-top: 4px;
+    margin-left: 42px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-size: 25px;
+    font-family: "Century Gothic";
+    border: 0;
+    height: 45px;
+    width: 317px;
+}
+
+#erttt{
+    margin-top: 20px;
+    margin-left: 42px;
+    font-size: 25px;
+}
+
+#buttonS{
+    width: 319px;
+    height: 45px;
+    margin-left: 42px;
+    border-radius: 5px;
+    margin-top: 50px;
+    font-size: 25px;
+    font-family: "Century Gothic";
+    font-weight: bold;
+    color: white;
+    background-color: #3645f6;
+    text-align: center;
+    border: 0;
+}
+
+a{
+    text-decoration: none
+}
