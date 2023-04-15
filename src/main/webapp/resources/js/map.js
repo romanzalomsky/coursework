@@ -1,4 +1,4 @@
-ymaps3.ready().then(init);
+ymaps.ready(init())
 function init(){
     const map = new ymaps3.YMap(document.getElementById('map'), {
         location: {

@@ -5,25 +5,32 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Log in with your account</title>
+  <title>Логинация</title>
+  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/loginStyle.css">
 </head>
 
 <body>
-<sec:authorize access="isAuthenticated()">
-  <% response.sendRedirect("/"); %>
-</sec:authorize>
-<div>
-  <form method="POST" action="/login">
-    <h2>Вход в систему</h2>
-    <div>
-      <input name="username" type="text" placeholder="Username"
-             autofocus="true"/>
-      <input name="password" type="password" placeholder="Password"/>
-      <button type="submit">Log In</button>
-      <h4><a href="/registration">Зарегистрироваться</a></h4>
-    </div>
-  </form>
+<div class="content-box">
+  <sec:authorize access="isAuthenticated()">
+    <% response.sendRedirect("/"); %>
+  </sec:authorize>
+  <div>
+    <form method="POST" action="/login">
+      <div id="reg">Логинация</div>
+      <div>
+        <div id="ert">
+          логин<br>
+        </div>
+        <input id="inputName" name="username" type="text" autofocus="true"/>
+        <div id="ertt">
+          пароль<br>
+        </div>
+        <input id="inputPass" name="password" type="password"/>
+        <button id="buttonS" type="submit">Войти</button>
+        <h4><a href="/registration">Зарегистрироваться</a></h4>
+      </div>
+    </form>
+  </div>
 </div>
-
 </body>
 </html>

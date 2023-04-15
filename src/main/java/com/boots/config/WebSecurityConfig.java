@@ -26,34 +26,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf()
-                    .disable()
+                .disable()
                 .authorizeRequests()
-                    //Доступ только для не зарегистрированных пользователей
-                    .antMatchers("/registration").not().fullyAuthenticated()
-                    //Доступ только для пользователей с ролью Администратор
-                    .antMatchers("/admin/**").hasRole("ADMIN")
-                    .antMatchers("/addEstate").hasRole("USER")
+                //Доступ только для не зарегистрированных пользователей
+                .antMatchers("/registration").not().fullyAuthenticated()
+                //Доступ только для пользователей с ролью Администратор
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/addEstate").hasAnyRole("ADMIN", "USER")
 /*                    .antMatchers("/addEstate").hasRole("ADMIN")*/
-                    .antMatchers("/search").hasRole("USER")
-                    .antMatchers("/converter").hasRole("USER")
-                    .antMatchers("/view").hasRole("USER")
-                    .antMatchers("/favorite").hasRole("USER")
-                    .antMatchers("/news").hasRole("USER")
-                    //Доступ разрешен всем пользователей
-                    .antMatchers("/", "/resources/**").permitAll()
+                .antMatchers("/search").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/converter").permitAll()
+                .antMatchers("/view").permitAll()
+                .antMatchers("/favorite").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/news").permitAll()
+                .antMatchers("/profile").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/newssearch").hasAnyRole("ADMIN", "USER")
+                //Доступ разрешен всем пользователей
+                .antMatchers("/", "/resources/**").permitAll()
                 //Все остальные страницы требуют аутентификации
                 .anyRequest().authenticated()
                 .and()
-                    //Настройка для входа в систему
-                    .formLogin()
-                    .loginPage("/login")
-                    //Перенарпавление на главную страницу после успешного входа
-                    .defaultSuccessUrl("/")
-                    .permitAll()
+                //Настройка для входа в систему
+                .formLogin()
+                .loginPage("/login")
+                //Перенарпавление на главную страницу после успешного входа
+                .defaultSuccessUrl("/")
+                .permitAll()
                 .and()
-                    .logout()
-                    .permitAll()
-                    .logoutSuccessUrl("/");
+                .logout()
+                .permitAll()
+                .logoutSuccessUrl("/");
     }
 
     @Autowired

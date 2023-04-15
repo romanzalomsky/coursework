@@ -1,0 +1,32 @@
+body{
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 245 247/var(--tw-bg-opacity));
+}
+
+.content-box{
+    display: block;
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    padding: 15px;
+    border-radius: 35px;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    text-align: center;
+
+    box-shadow: 0 0 15px 0px black;
+    font-family: "Century Gothic";
+}
+
+a{
+    text-decoration: none;
+}
+#eee{
+    padding-top: 20px;
+}
+#ttt{
+    padding-top: 150px;
+}
+

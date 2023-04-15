@@ -1,0 +1,32 @@
+*{
+    font-family: "Century Gothic";
+}
+body{
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 245 247/var(--tw-bg-opacity));
+}
+
+.content-box{
+    float: left;
+    display: block;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 40px;
+    border-radius: 0;
+    width: 270px;
+    height: 320px;
+    background-color: white;
+    box-shadow: 0 0 1px 0px black;
+    font-family: "Century Gothic";
+}
+
+a {
+    cursor: pointer;
+    background-color: transparent;
+    color: #0061BA;
+    outline-width: 0;
+    text-decoration: none;
+    -webkit-transition: color .5s cubic-bezier(.2,1,.2,1);
+    -o-transition: color .5s cubic-bezier(.2,1,.2,1);
+    transition: color .5s cubic-bezier(.2,1,.2,1);
+}

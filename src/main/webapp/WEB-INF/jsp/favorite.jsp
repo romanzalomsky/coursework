@@ -5,7 +5,7 @@
 <html >
 <head>
     <meta charset="utf-8">
-    <title>Избранное</title>
+    <title>Избранное    </title>
 </head>
 <body>
 

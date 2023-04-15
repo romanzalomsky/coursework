@@ -1,5 +1,9 @@
 package com.boots.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -9,6 +13,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "estate")
+@NoArgsConstructor
+@Getter
+@Setter
 public class Estate implements Serializable {
 
     @Id
@@ -31,28 +38,14 @@ public class Estate implements Serializable {
     private String house_type;
     @Column(name = "address")
     private String address;
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "estate")
     private List<Image> images = new ArrayList<>();
 
+/*    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    private User user;*/
+
     private Long previewImageId;
     private LocalDateTime dateOfCreated;
-    
-    public LocalDateTime getDateOfCreated() {
-        return dateOfCreated;
-    }
-
-    public void setDateOfCreated(LocalDateTime dateOfCreated) {
-        this.dateOfCreated = dateOfCreated;
-    }
-
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
 
     @PrePersist
     private void init(){
@@ -73,89 +66,6 @@ public class Estate implements Serializable {
         this.cost = cost;
         this.type = type;
         this.house_type = house_type;
-        this.address = address;
-    }
-
-    public Long getPreviewImageId(Long id) {
-        return previewImageId;
-    }
-
-    public void setPreviewImageId(Long previewImageId) {
-        this.previewImageId = previewImageId;
-    }
-
-    public Estate() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getHouse_type() {
-        return house_type;
-    }
-
-    public void setHouse_type(String house_type) {
-        this.house_type = house_type;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
         this.address = address;
     }
 
