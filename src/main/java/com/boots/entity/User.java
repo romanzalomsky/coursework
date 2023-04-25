@@ -5,7 +5,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,6 +24,22 @@ public class User implements UserDetails {
     private String passwordConfirm;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
+
+/*    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "t_user")
+    private List<Estate> estates = new ArrayList<>();*/
+
+/*    public List<Estate> getEstates() {
+        return estates;
+    }
+
+    public void setEstates(List<Estate> estates) {
+        this.estates = estates;
+    }*/
+
+/*    public void addUserToEstate(Estate estate){
+        estate.setUser(this);
+        estates.add(estate);
+    }*/
 
     public User() {
     }
