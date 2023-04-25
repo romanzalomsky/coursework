@@ -6,9 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
@@ -38,24 +35,6 @@ public class Estate implements Serializable {
     private String house_type;
     @Column(name = "address")
     private String address;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "estate")
-    private List<Image> images = new ArrayList<>();
-
-/*    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    private User user;*/
-
-    private Long previewImageId;
-    private LocalDateTime dateOfCreated;
-
-    @PrePersist
-    private void init(){
-        dateOfCreated = LocalDateTime.now();
-    }
-
-    public void addImageToEstate(Image image){
-        image.setEstate(this);
-        images.add(image);
-    }
 
     public Estate(Long id, String name, String description, String country, String city, double cost, String type, String house_type, String address) {
         this.id = id;

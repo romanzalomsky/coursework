@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/news").permitAll()
                 .antMatchers("/profile").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/newssearch").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/messages").hasRole("ADMIN")
                 //Доступ разрешен всем пользователей
                 .antMatchers("/", "/resources/**").permitAll()
                 //Все остальные страницы требуют аутентификации

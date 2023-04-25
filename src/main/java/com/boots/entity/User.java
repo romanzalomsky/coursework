@@ -28,6 +28,19 @@ public class User implements UserDetails {
 /*    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "t_user")
     private List<Estate> estates = new ArrayList<>();*/
 
+/*    public List<Estate> getEstates() {
+        return estates;
+    }
+
+    public void setEstates(List<Estate> estates) {
+        this.estates = estates;
+    }*/
+
+/*    public void addUserToEstate(Estate estate){
+        estate.setUser(this);
+        estates.add(estate);
+    }*/
+
     public User() {
     }
 

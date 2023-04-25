@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <!DOCTYPE html>
@@ -6,6 +8,7 @@
 <head>
     <meta charset="utf-8">
     <title>Добавить объявление</title>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/addEstate.css">
 </head>
 <body>
     <div>
@@ -16,35 +19,37 @@
                 <input type="text" name="name" placeholder="Название" autofocus="true">
             </div>
             <div>
-                <input type="text" name="description" placeholder="Описание">
+                <textarea style="width:300px; height:150px" type="text" name="description" placeholder="Описание"></textarea>
             </div>
-            <div>
-                <input type="text" name="country" placeholder="Страна">
-            </div>
+            <select id="selectCountry" name="country">
+                <option>Россия</option>
+                <option>Беларусь</option>
+                <option>Испания</option>
+                <option>США</option>
+                <option>Франция</option>
+            </select>
             <div>
                 <input type="text" name="city" placeholder="Город">
             </div>
             <div>
                 <input type="number" name="cost" placeholder="Цена">
             </div>
-            <div>
-                <input type="text" name="type" placeholder="Тип">
-            </div>
-            <div>
-                <input type="text" name="house_type" placeholder="Тип недвижимости">
-            </div>
+            <select id="selectType" name="type">
+                <option>Продажа</option>
+                <option>Аренда</option>
+            </select>
+            <select id="selectHouse" name="house_type">
+                <option>Квартира</option>
+                <option>Коттедж</option>
+                <option>Дача</option>
+            </select>
             <div>
                 <input type="text" name="address" placeholder="Адрес">
             </div>
-            <div>
-                Первая фотография: <input type="file" name="file1"/><br><br>
-                Вторая фотография: <input type="file" name="file2"/><br><br>
-                Третья фотография: <input type="file" name="file3"/><br><br>
-            </div>
+
             <button type="submit">Добавить</button>
         </form>
     </div>
 
-</div>
 </body>
 </html>

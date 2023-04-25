@@ -1,12 +1,9 @@
 package com.boots.service;
 
-import com.boots.entity.Estate;
-import com.boots.entity.Image;
 import com.boots.entity.News;
 import com.boots.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

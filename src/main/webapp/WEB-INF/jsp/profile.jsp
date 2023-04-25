@@ -26,10 +26,21 @@
             <a href="/favorite">Избранное</a><br>
         </security:authorize>
 
+        <security:authorize access="hasAnyRole('ADMIN')">
+        <a href="/messages">Сообщения от пользователей</a><br>
+        </security:authorize>
+
+        <form action="/profile/create" method="POST" enctype="multipart/form-data">
+            <div>
+                <textarea style="width:300px; height:150px" type="text" name="text" placeholder="Связь с Администрацией"></textarea>
+            </div>
+            <button type="submit">Добавить</button>
+        </form>
+            <br>
+
         <sec:authorize access="isAuthenticated()">
             <a href="/logout">Выйти</a><br>
         </sec:authorize>
-
     </div>
 
 </div>

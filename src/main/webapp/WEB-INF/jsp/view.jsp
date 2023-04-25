@@ -9,37 +9,40 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/view.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+
 
 <c:forEach items="${estates}" var="estate">
     <div class="content-box">
-            <%--            <c:forEach items="${images}" var="img">--%>
-        <img src="<%--/images/${img.id}--%> https://prorealproperty.com/img/data/img5c3d23ed159e6_1547510765_1.jpg" height="230px" width="270px"/><br>
-            <%--            </c:forEach>--%>
+        <img src="https://prorealproperty.com/img/data/img5c3d23ed159e6_1547510765_1.jpg" height="230px" width="270px"/><br>
         <a href="/estate/${estate.id}">${estate.name}</a><br>
             ${estate.cost} $<br>
     </div>
 </c:forEach>
 
-<br>
+
+<%--<c:if test="${currentPage != 1}">
+    <td><a href="view?page=${currentPage - 1}">Previous</a></td>
+</c:if>
+
+<c:forEach begin="1" end="${amountOfPages}" var="i">
+    <c:choose>
+        <c:when test="${currentPage eq i}">
+            <td>${i}</td>
+        </c:when>
+        <c:otherwise>
+            <td><a href="view?page=${i}">${i}</a></td>
+        </c:otherwise>
+    </c:choose>
+</c:forEach>
+
+<c:if test = "${currentPage lt amountOfPages}">
+    <a href="view?page=${currentPage + 1}"> Next </a>
+</c:if>--%>
 
 <form action="/view" method="GET">
     Поиск по названию: <input type="text" name="name"><br>
     <input type="submit" value="Найти">
 </form>
-<br>
-
-<%--<form action="/view/sortEstate" method="GET">
-    <div class="container">
-        Тип недвижимости<br>
-        <select name="house_type" class="js_choice">
-            <option>Коттедж</option>
-            <option>Квартира</option>
-        </select>
-    </div>
-    <input type="submit" value="Найти">
-</form>--%>
-<br>
 
 </body>
 </html>

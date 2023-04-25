@@ -1,9 +1,12 @@
 package com.boots.service;
 
 import com.boots.entity.Estate;
-import com.boots.entity.Image;
+import com.boots.entity.User;
 import com.boots.repository.EstateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,49 +26,18 @@ public class EstateService {
     EstateRepository estateRepository;
 
     public List<Estate> listEstate(String name){
-        if(name != null) return estateRepository.findByName(name);
+        if(name != null)  return estateRepository.findByName(name);
         return estateRepository.findAll();
     }
 
-    public List<Estate> listHouseEstate(String house_type){
-        return estateRepository.findAll(Sort.by(Sort.Direction.ASC, house_type));
-    }
+/*    public List<Estate> listEstate(){
+        return estateRepository.findAll();
+    }*/
 
-    public void saveEstate(Estate estate, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws IOException {
-
-        Image image1;
-        Image image2;
-        Image image3;
-
-        if(file1.getSize() != 0){
-            image1 = toImageEntity(file1);
-            image1.setPreviewImage(true);
-            estate.addImageToEstate(image1);
-        }
-        if(file2.getSize() != 0){
-            image2 = toImageEntity(file2);
-            estate.addImageToEstate(image2);
-        }
-        if(file3.getSize() != 0){
-            image3 = toImageEntity(file3);
-            estate.addImageToEstate(image3);
-        }
-
-        Estate estateFromDb = estateRepository.save(estate);
-        estateFromDb.setPreviewImageId(estateFromDb.getImages().get(0).getId());
+    public void saveEstate(Estate estate) throws IOException {
         estateRepository.save(estate);
     }
 
-    private Image toImageEntity(MultipartFile file) throws IOException {
-
-        Image image = new Image();
-        image.setName(file.getName());
-        image.setOriginalFileName(file.getOriginalFilename());
-        image.setContentType(file.getContentType());
-        image.setSize(file.getSize());
-        image.setBytes(file.getBytes());
-        return image;
-    }
 
     public void deleteEstate(Long id) {
         estateRepository.deleteById(id);
@@ -74,4 +46,5 @@ public class EstateService {
     public Estate getEstateById(Long id){
         return estateRepository.findById(id).orElse(null);
     }
+
 }
